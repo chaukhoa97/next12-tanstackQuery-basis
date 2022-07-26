@@ -1,11 +1,14 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
+
 export default function Document() {
   return (
-    <Html>
+    {/* Thêm vào ` lang="cn" ` */}
+    <Html lang="cn">
       <Head />
-      <body>
-        {/* Thêm vào portal */}
+      {/* Thêm vào ` className="bg-white" ` */}
+      <body className="bg-white">
+        {/* Thêm vào <div> portal */}
         <div id="portal" />
         <Main />
         <NextScript />
