@@ -28,11 +28,14 @@ export async function getStaticPaths() {
 export default function Home({ posts }) {
   return posts.map((post) => (
     <div key={post.id}>
-      <Link href={`/${post.id}`}>
+      {/* <Link href={`/${post.id}`}>
         <a>
           {post.id}. {post.title}
         </a>
-      </Link>
+      </Link> */}
+      <a href={`/${post.id}`}>
+        {post.id}. {post.title}
+      </a>
     </div>
   ));
 }
