@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    {/* Thêm vào ` lang="cn" ` */}
+    // Thêm vào ` lang="cn" `
     <Html lang="cn">
       <Head />
       {/* Thêm vào ` className="bg-white" ` */}
