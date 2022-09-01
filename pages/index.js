@@ -1,32 +1,32 @@
 import usePosts from '../hooks/usePosts'
+import { useState, useEffect, useCallback, useRef, useContext } from 'react'
 
-export async function getStaticProps() {
-  return { props: { postId: 1 } }
-}
-
-export default function Home({ postId }) {
-  const {
-    isLoading,
-    isError,
-    data: post1,
-    error,
-  } = usePosts({
-    postId,
-    allow: true,
+export default function Home() {
+  const [userId, setuserId] = useState(1)
+  const [allow, setallow] = useState(false)
+  const { isLoading, isError, data, error } = usePosts({
+    userId,
+    allow,
   })
 
-  if (isLoading) {
-    return <span>Loading...</span>
-  }
+  const result = () => {
+    if (isLoading) {
+      return <p>Loading...</p>
+    }
 
-  if (isError) {
-    return <span>Error: {error.message}</span>
+    if (isError) {
+      return <p>Error: {error.message}</p>
+    }
+    return <pre>{JSON.stringify(data, null, 2)}</pre>
   }
 
   // We can assume by this point that `isSuccess === true`
   return (
     <div>
-      <h3>{JSON.stringify(post1)}</h3>
+      <button onClick={() => setuserId((u) => u - 1)}>Minus Id</button>
+      <button onClick={() => setuserId((u) => u + 1)}>Plus Id</button>
+      <button onClick={() => setallow((a) => !a)}>Toggle Allow</button>
+      {result()}
     </div>
   )
 }
