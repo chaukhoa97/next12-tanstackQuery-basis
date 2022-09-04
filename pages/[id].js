@@ -1,28 +1,28 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export async function getStaticProps() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const posts = await res.json();
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const posts = await res.json()
   return {
     props: {
       posts,
     },
-  };
+  }
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const posts = await res.json();
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+  const posts = await res.json()
   // Chỉ pre-render 5 post đầu
   const paths = posts.slice(0, 5).map((post) => ({
     params: {
       id: post.id.toString(),
     },
-  }));
+  }))
   return {
     paths,
     fallback: 'blocking',
-  };
+  }
 }
 
 export default function Home({ posts }) {
@@ -37,5 +37,5 @@ export default function Home({ posts }) {
         {post.id}. {post.title}
       </a>
     </div>
-  ));
+  ))
 }
