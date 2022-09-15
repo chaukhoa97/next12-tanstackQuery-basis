@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import usePaginated from '../lib/queries/usePaginated'
+import axios from 'axios'
 
 const Paginated = () => {
+  const queryClient = useQueryClient()
   const [page, setPage] = useState(1)
   const { isLoading, isError, error, data, isFetching, isPreviousData } =
     usePaginated(page)
+
+  useEffect(() => {
+    queryClient.prefetchQuery(['paginated', page + 1], () =>
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/?offset=${page * 10}&limit=10`)
+        .then((res) => res.data),
+    )
+  }, [page, queryClient])
 
   if (isLoading) {
     return <div>Loading...</div>
