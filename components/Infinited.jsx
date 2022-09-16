@@ -1,6 +1,22 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
+const sampleApiReturn = {
+  count: 1154,
+  next: 'https://pokeapi.co/api/v2/pokemon/?offset=1140&limit=10',
+  previous: 'https://pokeapi.co/api/v2/pokemon/?offset=1120&limit=10',
+  results: [
+    {
+      name: 'urshifu-single-strike-gmax',
+      url: 'https://pokeapi.co/api/v2/pokemon/10226/',
+    },
+    {
+      name: 'urshifu-rapid-strike-gmax',
+      url: 'https://pokeapi.co/api/v2/pokemon/10227/',
+    },
+  ],
+}
+
 const Infinited = () => {
   const {
     data,
@@ -22,22 +38,7 @@ const Infinited = () => {
         .then((res) => res.data),
     {
       getNextPageParam: (lastPage, allPages) => {
-        // api returns:
-        //   {
-        //     "count": 1154,
-        //     "next": "https://pokeapi.co/api/v2/pokemon/?offset=1140&limit=10",
-        //     "previous": "https://pokeapi.co/api/v2/pokemon/?offset=1120&limit=10",
-        //     "results": [
-        //         {
-        //             "name": "urshifu-single-strike-gmax",
-        //             "url": "https://pokeapi.co/api/v2/pokemon/10226/"
-        //         },
-        //         {
-        //             "name": "urshifu-rapid-strike-gmax",
-        //             "url": "https://pokeapi.co/api/v2/pokemon/10227/"
-        //         },
-        //     ]
-        // }
+        console.log(data?.pageParams[1])
         return lastPage.next
           ? lastPage.next.split('offset=')[1].split('&')[0] / 10
           : null

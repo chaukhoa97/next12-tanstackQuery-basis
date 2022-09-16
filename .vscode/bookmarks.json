@@ -9,6 +9,26 @@
           "label": "font"
         }
       ]
+    },
+    {
+      "path": "lib/queries/usePosts.js",
+      "bookmarks": [
+        {
+          "line": 4,
+          "column": 34,
+          "label": ""
+        }
+      ]
+    },
+    {
+      "path": "lib/queries/useComment.js",
+      "bookmarks": [
+        {
+          "line": 5,
+          "column": 32,
+          "label": ""
+        }
+      ]
     }
   ]
 }
