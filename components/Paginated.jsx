@@ -5,14 +5,19 @@ import axios from 'axios'
 
 const Paginated = () => {
   const queryClient = useQueryClient()
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
   const { isLoading, isError, error, data, isFetching, isPreviousData } =
     usePaginated(page)
 
   useEffect(() => {
+    // Prefetch the next page when page changes
     queryClient.prefetchQuery(['paginated', page + 1], () =>
       axios
-        .get(`https://pokeapi.co/api/v2/pokemon/?offset=${page * 10}&limit=10`)
+        .get(
+          `https://pokeapi.co/api/v2/pokemon/?offset=${
+            (page + 1) * 10
+          }&limit=10`,
+        )
         .then((res) => res.data),
     )
   }, [page, queryClient])
