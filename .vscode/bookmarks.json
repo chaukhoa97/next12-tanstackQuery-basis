@@ -24,8 +24,23 @@
       "path": "lib/queries/useComment.js",
       "bookmarks": [
         {
-          "line": 5,
+          "line": 7,
           "column": 32,
+          "label": ""
+        },
+        {
+          "line": 12,
+          "column": 15,
+          "label": "Dependent/Lazy Queries"
+        }
+      ]
+    },
+    {
+      "path": "lib/queries/usePostMutation.js",
+      "bookmarks": [
+        {
+          "line": 16,
+          "column": 8,
           "label": ""
         }
       ]

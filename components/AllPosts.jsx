@@ -1,6 +1,5 @@
 import usePosts from '../lib/queries/usePosts'
 import { useQueryClient } from '@tanstack/react-query'
-import { fetchData } from '../lib/queries/useBasicQuery'
 import axios from 'axios'
 import { useState } from 'react'
 

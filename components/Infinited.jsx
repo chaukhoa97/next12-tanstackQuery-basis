@@ -38,7 +38,6 @@ const Infinited = () => {
         .then((res) => res.data),
     {
       getNextPageParam: (lastPage, allPages) => {
-        console.log(data?.pageParams[1])
         return lastPage.next
           ? lastPage.next.split('offset=')[1].split('&')[0] / 10
           : null
