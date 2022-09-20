@@ -2,10 +2,8 @@ import { useState, Fragment } from 'react'
 import useBasicQuery from '../lib/queries/useBasicQuery'
 
 const BasicQueryResult = ({ type, id }) => {
-  const { isFetching, isLoading, isError, data, error } = useBasicQuery(
-    type,
-    id,
-  )
+  const { isFetching, isLoading, isError, data, error, isPlaceholderData } =
+    useBasicQuery(type, id)
 
   const result = () => {
     if (isLoading) {
@@ -20,6 +18,7 @@ const BasicQueryResult = ({ type, id }) => {
           {type}/{id}
         </h2>
         {isFetching ? <p>Fetching...</p> : null}
+        {isPlaceholderData && <b>Placeholder data</b>}
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </Fragment>
     )

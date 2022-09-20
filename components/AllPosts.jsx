@@ -8,13 +8,14 @@ const AllPosts = ({ setId }) => {
   const queryClient = useQueryClient()
   const [, forceRerender] = useState()
   const handleMouseEnter = async (id) => {
-    await queryClient.prefetchQuery(
-      ['basic query', { type: 'posts', id }],
-      () =>
-        axios
-          .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-          .then((res) => res.data),
-    )
+    // Comment this to test `initialData` in useBasicQuery.js
+    // await queryClient.prefetchQuery(
+    //   ['basic query', { type: 'posts', id }],
+    //   () =>
+    //     axios
+    //       .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    //       .then((res) => res.data),
+    // )
     console.log(
       queryClient.getQueryData(['basic query', { type: 'posts', id }]),
     )
