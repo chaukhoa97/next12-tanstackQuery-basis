@@ -38,7 +38,6 @@ export default function BasicQuery() {
               idRef.current = e.target.value
             }}
           />
-          {/* Refetch button */}
           <button
             className="btn btn-primary ml-3"
             onClick={() => setId(idRef.current)}

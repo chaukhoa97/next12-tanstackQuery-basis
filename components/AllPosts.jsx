@@ -14,12 +14,9 @@ const AllPosts = ({ setId }) => {
         axios
           .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
           .then((res) => res.data),
-      {
-        staleTime: 5000,
-      },
     )
     console.log(
-      queryClient.getQueriesData(['basic query', { type: 'posts', id }])[0][1],
+      queryClient.getQueryData(['basic query', { type: 'posts', id }]),
     )
     forceRerender({})
   }
@@ -41,10 +38,10 @@ const AllPosts = ({ setId }) => {
               <button
                 onClick={() => setId(post.id)}
                 className={`btn btn-link ${
-                  queryClient.getQueriesData([
+                  queryClient.getQueryData([
                     'basic query',
                     { type: 'posts', id: post.id },
-                  ]).length > 0
+                  ])
                     ? 'text-green-500'
                     : 'text-red-500'
                 }`}
