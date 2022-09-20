@@ -1,19 +1,17 @@
-import { useState, useRef } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import BasicQueryResult from '../components/BasicQueryResult'
-import Comment from '../components/Comment'
-import AllPosts from '../components/AllPosts'
-import AddFormPost from '../components/AddFormPost'
 import Link from 'next/link'
+import { trpc } from '../lib/utils/trpc'
 
 export default function Home() {
-  const [id, setId] = useState(-1)
-  const [type, setType] = useState('posts')
-  const idRef = useRef(id)
-  const queryClient = useQueryClient()
+  const hello = trpc.hello.useQuery({ text: 'meo' })
+  if (!hello.data) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
+      <div>
+        <p>{hello.data.greeting}</p>
+      </div>
       <Link href="/basic-react-query">
         <a className="link link-primary block">Basic React Query</a>
       </Link>
