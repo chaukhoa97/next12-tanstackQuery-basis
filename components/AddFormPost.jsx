@@ -5,7 +5,7 @@ const AddFormPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const { title } = e.target.elements
+    const { title } = e.target.elements // Các child của <form>, ở đây là <input> with `name="title"`
     mutation.mutate({
       title: title.value,
     })
