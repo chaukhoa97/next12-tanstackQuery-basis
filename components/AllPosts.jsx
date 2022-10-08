@@ -1,10 +1,16 @@
-import usePosts from '../lib/queries/usePosts'
 import { useQueryClient } from '@tanstack/react-query'
-import axios from 'axios'
 import { useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 const AllPosts = ({ setId }) => {
-  const { isFetching, isLoading, isError, data, error } = usePosts()
+  const { isFetching, isLoading, isError, data, error } = useQuery(
+    ['posts'],
+    () =>
+      // Query function with `fetch`
+      fetch('https://jsonplaceholder.typicode.com/posts').then((res) =>
+        res.json(),
+      ),
+  )
   const queryClient = useQueryClient()
   const [, forceRerender] = useState()
   const handleMouseEnter = async (id) => {
