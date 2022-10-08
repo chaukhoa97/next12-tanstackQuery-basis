@@ -1,9 +1,20 @@
 import { useState, Fragment } from 'react'
-import useComment from '../lib/queries/useComment'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
 const Comment = ({ id }) => {
   const [enabled, setEnabled] = useState(false)
-  const { isFetching, isError, data, error } = useComment(id, enabled)
+  const { isFetching, isError, data, error } = useQuery(
+    ['comments', id],
+    () =>
+      // Query function with axios
+      axios
+        .get(`https://jsonplaceholder.typicode.com/comments/${id}`)
+        .then((res) => res.data),
+    {
+      enabled,
+    },
+  )
 
   const result = () => {
     if (isError) {

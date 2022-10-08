@@ -1,5 +1,5 @@
 import { useState, Fragment } from 'react'
-import useBasicQuery from '../lib/queries/useBasicQuery'
+import useBasicQuery from '../hooks/useBasicQuery'
 
 const BasicQueryResult = ({ type, id }) => {
   const { isFetching, isLoading, isError, data, error, isPlaceholderData } =

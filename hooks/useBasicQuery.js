@@ -30,6 +30,7 @@ const useBasicQuery = (type, id) => {
     cacheTime: 10000, // time to keep the `inactive` query in cache
     retry: 1, // number of retries if the query fails
     retryDelay: 1000, // time between retries,
+    enabled: true, // Dependent/Lazy Queries
     onSuccess: (data) => {
       console.log('success', data)
     },

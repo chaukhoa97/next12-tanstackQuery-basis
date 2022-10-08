@@ -1,4 +1,4 @@
-import usePostMutation from '../queries/usePostMutation'
+import usePostMutation from '../hooks/usePostMutation'
 
 const AddFormPost = () => {
   const mutation = usePostMutation()

@@ -11,7 +11,7 @@
       ]
     },
     {
-      "path": "queries/usePosts.js",
+      "path": "hooks/usePosts.js",
       "bookmarks": [
         {
           "line": 4,
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "path": "queries/useComment.js",
+      "path": "hooks/useComment.js",
       "bookmarks": [
         {
           "line": 7,
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "path": "queries/usePostMutation.js",
+      "path": "hooks/usePostMutation.js",
       "bookmarks": [
         {
           "line": 16,
@@ -51,6 +51,16 @@
         {
           "line": 8,
           "column": 36,
+          "label": ""
+        }
+      ]
+    },
+    {
+      "path": "components/Comment.jsx",
+      "bookmarks": [
+        {
+          "line": 9,
+          "column": 6,
           "label": ""
         }
       ]
