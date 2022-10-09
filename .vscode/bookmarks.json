@@ -1,79 +1,79 @@
 {
-  "files": [
-    {
-      "path": "pages/api/hello.js",
-      "bookmarks": [
-        {
-          "line": 0,
-          "column": 80,
-          "label": "font"
-        }
-      ]
-    },
-    {
-      "path": "hooks/usePosts.js",
-      "bookmarks": [
-        {
-          "line": 4,
-          "column": 34,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "hooks/useComment.js",
-      "bookmarks": [
-        {
-          "line": 7,
-          "column": 32,
-          "label": ""
-        },
-        {
-          "line": 12,
-          "column": 15,
-          "label": "Dependent/Lazy Queries"
-        }
-      ]
-    },
-    {
-      "path": "hooks/usePostMutation.js",
-      "bookmarks": [
-        {
-          "line": 16,
-          "column": 8,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "components/AllPosts.jsx",
-      "bookmarks": [
-        {
-          "line": 8,
-          "column": 36,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "components/Comment.jsx",
-      "bookmarks": [
-        {
-          "line": 9,
-          "column": 6,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "hooks/useBasicQuery.js",
-      "bookmarks": [
-        {
-          "line": 3,
-          "column": 62,
-          "label": ""
-        }
-      ]
-    }
-  ]
+	"files": [
+		{
+			"path": "pages/api/hello.js",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 80,
+					"label": "font"
+				}
+			]
+		},
+		{
+			"path": "hooks/usePosts.js",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 34,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "hooks/useComment.js",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 32,
+					"label": ""
+				},
+				{
+					"line": 12,
+					"column": 15,
+					"label": "Dependent/Lazy Queries"
+				}
+			]
+		},
+		{
+			"path": "hooks/usePostMutation.js",
+			"bookmarks": [
+				{
+					"line": 16,
+					"column": 8,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "components/AllPosts.jsx",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 36,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "components/Comment.jsx",
+			"bookmarks": [
+				{
+					"line": 9,
+					"column": 6,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "hooks/useBasicQuery.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 62,
+					"label": ""
+				}
+			]
+		}
+	]
 }
