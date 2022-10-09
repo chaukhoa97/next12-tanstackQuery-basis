@@ -1,9 +1,10 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 
+// Query function can be any function that *returns a promise*
 export const fetchData = ({ queryKey }) => {
+  // Access the key, status and page variables in your query function!
   const [_key, { type, id }] = queryKey
-  // Query function can be any function that *returns a promise*
   return axios
     .get(`https://jsonplaceholder.typicode.com/${type}/${id}`)
     .then((res) => res.data)

@@ -64,6 +64,16 @@
           "label": ""
         }
       ]
+    },
+    {
+      "path": "hooks/useBasicQuery.js",
+      "bookmarks": [
+        {
+          "line": 3,
+          "column": 62,
+          "label": ""
+        }
+      ]
     }
   ]
 }

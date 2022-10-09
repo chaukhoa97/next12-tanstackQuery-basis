@@ -5,11 +5,14 @@ import { useQuery } from '@tanstack/react-query'
 const AllPosts = ({ setId }) => {
   const { isFetching, isLoading, isError, data, error } = useQuery(
     ['posts'],
-    () =>
-      // Query function with `fetch`
-      fetch('https://jsonplaceholder.typicode.com/posts').then((res) =>
-        res.json(),
-      ),
+    () => {
+      // Query function with `fetch`: Must check for `ok` status because `fetch` doesn't throw errors
+      const res = fetch('https://jsonplaceholder.typicode.com/posts')
+      if (!res.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return res.json()
+    },
   )
   const queryClient = useQueryClient()
   const [, forceRerender] = useState()
