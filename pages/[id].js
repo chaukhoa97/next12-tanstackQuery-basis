@@ -29,9 +29,7 @@ export default function Home({ posts }) {
   return posts.map((post) => (
     <div key={post.id}>
       {/* <Link href={`/${post.id}`}>
-        <a>
           {post.id}. {post.title}
-        </a>
       </Link> */}
       <a href={`/${post.id}`}>
         {post.id}. {post.title}
