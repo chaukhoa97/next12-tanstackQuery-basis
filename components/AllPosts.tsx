@@ -3,21 +3,23 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 
 const AllPosts = ({ setId }) => {
-  const { isFetching, isLoading, isError, data, error } = useQuery(
-    ['posts'],
-    () => {
+  const { isFetching, isLoading, isError, data, error } = useQuery({
+    queryKey: ['posts'],
+    queryFn: async () => {
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts')
       // Query function with `fetch`: Must check for `ok` status because `fetch` doesn't throw errors
-      const res = fetch('https://jsonplaceholder.typicode.com/posts')
       if (!res.ok) {
         throw new Error('Network response was not ok')
       }
       return res.json()
     },
-  )
+  })
+
   const queryClient = useQueryClient()
   const [, forceRerender] = useState()
-  const handleMouseEnter = async (id) => {
-    // Comment this to test `initialData` in useBasicQuery.js
+
+  const handleMouseEnterPost = async (id) => {
+    // Comment this to test `initialData` in useBasicQuery.ts
     // await queryClient.prefetchQuery(
     //   ['basic query', { type: 'posts', id }],
     //   () =>
@@ -28,7 +30,7 @@ const AllPosts = ({ setId }) => {
     console.log(
       queryClient.getQueryData(['basic query', { type: 'posts', id }]),
     )
-    forceRerender({})
+    forceRerender({} as any)
   }
 
   const result = () => {
@@ -55,7 +57,7 @@ const AllPosts = ({ setId }) => {
                     ? 'text-green-500'
                     : 'text-red-500'
                 }`}
-                onMouseEnter={() => handleMouseEnter(post.id)}
+                onMouseEnter={() => handleMouseEnterPost(post.id)}
               >
                 {post.id}. {post.title}
               </button>

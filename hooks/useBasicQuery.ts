@@ -1,9 +1,9 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 
-// Query function can be any function that *returns a promise*
+// queryFn can be any function that *returns a promise*
 export const fetchData = ({ queryKey }) => {
-  // Access the key, status and page variables in your query function!
+  // Access the key, status and page variables in your query function
   const [_key, { type, id }] = queryKey
   return axios
     .get(`https://jsonplaceholder.typicode.com/${type}/${id}`)
@@ -12,7 +12,9 @@ export const fetchData = ({ queryKey }) => {
 
 const useBasicQuery = (type, id) => {
   const queryClient = useQueryClient()
-  return useQuery(['basic query', { type, id }], fetchData, {
+  return useQuery({
+    queryKey: ['basic query', { type, id }],
+    queryFn: fetchData,
     // "Good" data, data that is as good as if it were fetched from the backend
     //! This won't work together with `prefetchQuery` in AllPost.jsx because they have the same purpose
     //! Read more in https://tanstack.com/query/v4/docs/guides/initial-query-data

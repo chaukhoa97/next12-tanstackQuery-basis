@@ -36,27 +36,17 @@
 			]
 		},
 		{
-			"path": "hooks/usePostMutation.js",
+			"path": "hooks/usePostMutation.ts",
 			"bookmarks": [
 				{
-					"line": 16,
+					"line": 15,
 					"column": 8,
 					"label": ""
 				}
 			]
 		},
 		{
-			"path": "components/AllPosts.jsx",
-			"bookmarks": [
-				{
-					"line": 8,
-					"column": 36,
-					"label": ""
-				}
-			]
-		},
-		{
-			"path": "components/Comment.jsx",
+			"path": "components/Comment.tsx",
 			"bookmarks": [
 				{
 					"line": 9,
@@ -66,7 +56,7 @@
 			]
 		},
 		{
-			"path": "hooks/useBasicQuery.js",
+			"path": "hooks/useBasicQuery.ts",
 			"bookmarks": [
 				{
 					"line": 3,

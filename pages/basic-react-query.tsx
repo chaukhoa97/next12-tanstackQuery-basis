@@ -35,7 +35,7 @@ export default function BasicQuery() {
             className="input input-bordered mb-3"
             id="id"
             onChange={(e) => {
-              idRef.current = e.target.value
+              idRef.current = parseInt(e.target.value)
             }}
           />
           <button
@@ -47,7 +47,9 @@ export default function BasicQuery() {
           <button
             className="btn btn-secondary btn-outline ml-3"
             onClick={() => {
-              queryClient.invalidateQueries(['basic query', { type, id }])
+              queryClient.invalidateQueries({
+                queryKey: ['basic query', { type, id }],
+              })
             }}
           >
             Refetch "Basic Query" using invalidate
