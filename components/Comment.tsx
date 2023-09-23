@@ -4,17 +4,14 @@ import axios from 'axios'
 
 const Comment = ({ id }) => {
   const [enabled, setEnabled] = useState(false)
-  const { isFetching, isError, data, error } = useQuery(
-    ['comments', id],
-    () =>
-      // Query function with axios
+  const { isFetching, isError, data, error } = useQuery({
+    queryKey: ['comments', id],
+    queryFn: () =>
       axios
         .get(`https://jsonplaceholder.typicode.com/comments/${id}`)
         .then((res) => res.data),
-    {
-      enabled,
-    },
-  )
+    enabled,
+  })
 
   const result = () => {
     if (isError) {

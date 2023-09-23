@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "latest",
-    "@mantine/hooks": "latest",
     "@tanstack/react-query": "beta",
     "@tanstack/react-query-devtools": "beta",
     "axios": "latest",
@@ -24,13 +22,12 @@
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "autoprefixer": "latest",
+    "daisyui": "^3.7.7",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-react": "latest",
     "postcss": "latest",
-    "postcss-preset-mantine": "latest",
-    "postcss-simple-vars": "latest",
     "prettier": "latest",
     "tailwindcss": "latest"
   }

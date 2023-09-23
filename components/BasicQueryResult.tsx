@@ -2,11 +2,11 @@ import { useState, Fragment } from 'react'
 import useBasicQuery from '../hooks/useBasicQuery'
 
 const BasicQueryResult = ({ type, id }) => {
-  const { isFetching, isLoading, isError, data, error, isPlaceholderData } =
+  const { isFetching, isPending, isError, data, error, isPlaceholderData } =
     useBasicQuery(type, id)
 
   const result = () => {
-    if (isLoading) {
+    if (isPending) {
       return <p>Loading...</p>
     }
     if (isError) {

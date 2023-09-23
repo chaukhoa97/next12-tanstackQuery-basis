@@ -26,9 +26,9 @@ const Infinited = () => {
     isFetching,
     isFetchingNextPage,
     status,
-  } = useInfiniteQuery(
-    ['projects'],
-    ({ pageParam = 113 }) =>
+  } = useInfiniteQuery({
+    queryKey: ['projects'],
+    queryFn: ({ pageParam }) =>
       axios
         .get(
           `https://pokeapi.co/api/v2/pokemon/?offset=${
@@ -36,16 +36,15 @@ const Infinited = () => {
           }&limit=10`,
         )
         .then((res) => res.data),
-    {
-      getNextPageParam: (lastPage, allPages) => {
-        return lastPage.next
-          ? lastPage.next.split('offset=')[1].split('&')[0] / 10
-          : null
-      },
+    initialPageParam: 113,
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.next
+        ? lastPage.next.split('offset=')[1].split('&')[0] / 10
+        : null
     },
-  )
+  })
 
-  return status === 'loading' ? (
+  return status === 'pending' ? (
     <p>Loading...</p>
   ) : status === 'error' ? (
     <p>Error: {error.message}</p>

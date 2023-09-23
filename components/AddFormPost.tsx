@@ -16,7 +16,7 @@ const AddFormPost = () => {
       <div className="mb-4">
         <label
           htmlFor="title"
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-white text-sm font-bold mb-2"
         >
           Title
         </label>
@@ -24,7 +24,7 @@ const AddFormPost = () => {
           type="text"
           name="title"
           id="title"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div className="flex items-center justify-between">
@@ -35,7 +35,7 @@ const AddFormPost = () => {
           Submit
         </button>
       </div>
-      {mutation.isLoading
+      {mutation.isPending
         ? 'Adding Post...'
         : mutation.isError
         ? 'Error'

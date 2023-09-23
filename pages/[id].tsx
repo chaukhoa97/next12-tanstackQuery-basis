@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export async function getStaticProps() {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts')
   const posts = await res.json()
@@ -28,9 +26,6 @@ export async function getStaticPaths() {
 export default function Home({ posts }) {
   return posts.map((post) => (
     <div key={post.id}>
-      {/* <Link href={`/${post.id}`}>
-          {post.id}. {post.title}
-      </Link> */}
       <a href={`/${post.id}`}>
         {post.id}. {post.title}
       </a>

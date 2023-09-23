@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 
 const AllPosts = ({ setId }) => {
-  const { isFetching, isLoading, isError, data, error } = useQuery({
+  const { isFetching, isPending, isError, data, error } = useQuery({
     queryKey: ['posts'],
     queryFn: async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/posts')
@@ -20,13 +20,13 @@ const AllPosts = ({ setId }) => {
 
   const handleMouseEnterPost = async (id) => {
     // Comment this to test `initialData` in useBasicQuery.ts
-    // await queryClient.prefetchQuery(
-    //   ['basic query', { type: 'posts', id }],
-    //   () =>
+    // await queryClient.prefetchQuery({
+    //   queryKey: ['basic query', { type: 'posts', id }],
+    //   queryFn: () =>
     //     axios
     //       .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
     //       .then((res) => res.data),
-    // )
+    // })
     console.log(
       queryClient.getQueryData(['basic query', { type: 'posts', id }]),
     )
@@ -34,7 +34,7 @@ const AllPosts = ({ setId }) => {
   }
 
   const result = () => {
-    if (isLoading) {
+    if (isPending) {
       return <p>Loading...</p>
     }
     if (isError) {

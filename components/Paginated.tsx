@@ -21,34 +21,33 @@ const sampleApiReturn = {
 const Paginated = () => {
   const queryClient = useQueryClient()
   const [page, setPage] = useState(0)
-  const { isLoading, isError, error, data, isFetching, isPreviousData } =
-    useQuery(
-      ['paginated', page],
-      () =>
+  const { isPending, isError, error, data, isFetching, isPlaceholderData } =
+    useQuery({
+      queryKey: ['paginated', page],
+      queryFn: () =>
         axios
           .get(
             `https://pokeapi.co/api/v2/pokemon/?offset=${page * 10}&limit=10`,
           )
           .then((res) => res.data),
-      {
-        keepPreviousData: true,
-      },
-    )
+    })
 
   useEffect(() => {
     // Prefetch the next page when page changes
-    queryClient.prefetchQuery(['paginated', page + 1], () =>
-      axios
-        .get(
-          `https://pokeapi.co/api/v2/pokemon/?offset=${
-            (page + 1) * 10
-          }&limit=10`,
-        )
-        .then((res) => res.data),
-    )
+    queryClient.prefetchQuery({
+      queryKey: ['paginated', page + 1],
+      queryFn: () =>
+        axios
+          .get(
+            `https://pokeapi.co/api/v2/pokemon/?offset=${
+              (page + 1) * 10
+            }&limit=10`,
+          )
+          .then((res) => res.data),
+    })
   }, [page, queryClient])
 
-  if (isLoading) {
+  if (isPending) {
     return <div>Loading...</div>
   }
 
@@ -62,7 +61,7 @@ const Paginated = () => {
       {data.results.map((result) => (
         <div
           key={result.id}
-          className={isPreviousData ? 'text-gray-500' : 'text-white'}
+          className={isPlaceholderData ? 'text-gray-500' : 'text-white'}
         >
           {result.name}
         </div>
@@ -82,7 +81,7 @@ const Paginated = () => {
           type="button"
           className="btn btn-primary"
           // Disable if the current page data is still being fetched or if there is no next page (from `sampleApiReturn` above)
-          disabled={isPreviousData || !data.next}
+          disabled={isPlaceholderData || !data.next}
           onClick={() => {
             setPage((p) => p + 1)
           }}

@@ -13,18 +13,16 @@ export const getServerSideProps = async () => {
 
 export default function Bla({ posts }) {
   // Có sẵn data lúc pre-render, vào xong sẽ refetch lại một lần nữa
-  const { data, isLoading, isFetching, isError, error } = useQuery(
-    ['posts'],
-    () =>
+  const { data, isPending, isFetching, isError, error } = useQuery({
+    queryKey: ['posts'],
+    queryFn: () =>
       fetch('https://jsonplaceholder.typicode.com/posts').then((res) =>
         res.json(),
       ),
-    {
-      initialData: posts,
-    },
-  )
+    initialData: posts,
+  })
 
-  if (isLoading) return <div>Loading...</div>
+  if (isPending) return <div>Loading...</div>
   if (isError) return <div>Error: {error.message}</div>
 
   return (
