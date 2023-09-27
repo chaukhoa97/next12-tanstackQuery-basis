@@ -9,26 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tanstack/react-query": "beta",
-    "@tanstack/react-query-devtools": "beta",
-    "axios": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@tanstack/react-query": "rc",
+    "@tanstack/react-query-devtools": "rc",
+    "axios": "^1.5.1",
+    "next": "^13.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "20.6.3",
-    "@types/react": "18.2.22",
+    "@types/node": "latest",
+    "@types/react": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
-    "autoprefixer": "latest",
+    "autoprefixer": "^10.4.16",
     "daisyui": "^3.7.7",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "latest",
     "eslint-plugin-react": "latest",
-    "postcss": "latest",
+    "postcss": "^8.4.30",
     "prettier": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "3.3.3"
   }
 }
