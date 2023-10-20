@@ -28,7 +28,7 @@ const useBasicQuery = (type, id) => {
     },
     // staleTime: 3000, // time to take the query from 'fresh' to 'stale', ...
     refetchOnWindowFocus: false, // ... when it's stale, the query will be refetched on window focus
-    gcTime: 10000, // time to keep the `inactive` query in cache
+    gcTime: 10000, // time to keep the unused/ inactive query in cache
     retry: 1, // number of retries if the query fails
     retryDelay: 1000, // time between retries,
     enabled: true, // Dependent/Lazy Queries
