@@ -15,16 +15,12 @@ const useBasicQuery = (type, id) => {
   return useQuery({
     queryKey: ['basic query', { type, id }],
     queryFn: fetchData,
-    // "Good" data, data that is as good as if it were fetched from the backend
-    //! This won't work together with `prefetchQuery` in AllPost.jsx because they have the same purpose
-    //! Read more in https://tanstack.com/query/v4/docs/guides/initial-query-data
+    // "Good" data, is persisted in cache
     initialData: () => {
       // Get the data from another query cache if exists
-      return queryClient
-        .getQueryData<any[]>(['posts'])
-        ?.find((p) => p.id === id)
+      return queryClient.getQueryData<any[]>(['posts']).find((p) => p.id === id)
     },
-    // "Fake-it-till-you-make-it" data
+    // Alternative of `initialData` above. Not persited in cache. Should be used for placeholder, partial or incomplete data.
     placeholderData: {
       id,
       title: 'Placeholder title',
