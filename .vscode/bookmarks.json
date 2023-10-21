@@ -1,51 +1,6 @@
 {
 	"files": [
 		{
-			"path": "pages/api/hello.js",
-			"bookmarks": [
-				{
-					"line": 0,
-					"column": 80,
-					"label": "font"
-				}
-			]
-		},
-		{
-			"path": "hooks/usePosts.js",
-			"bookmarks": [
-				{
-					"line": 4,
-					"column": 34,
-					"label": ""
-				}
-			]
-		},
-		{
-			"path": "hooks/useComment.js",
-			"bookmarks": [
-				{
-					"line": 7,
-					"column": 32,
-					"label": ""
-				},
-				{
-					"line": 12,
-					"column": 15,
-					"label": "Dependent/Lazy Queries"
-				}
-			]
-		},
-		{
-			"path": "hooks/usePostMutation.ts",
-			"bookmarks": [
-				{
-					"line": 15,
-					"column": 8,
-					"label": ""
-				}
-			]
-		},
-		{
 			"path": "components/Comment.tsx",
 			"bookmarks": [
 				{
@@ -56,12 +11,12 @@
 			]
 		},
 		{
-			"path": "hooks/useBasicQuery.ts",
+			"path": "components/AllPosts.tsx",
 			"bookmarks": [
 				{
-					"line": 3,
-					"column": 62,
-					"label": ""
+					"line": 9,
+					"column": 35,
+					"label": "// Query function with `fetch`: Must check for `ok` status because `fetch` doesn't throw errors"
 				}
 			]
 		}

@@ -1,14 +1,16 @@
-import usePostMutation from '../hooks/usePostMutation'
+import { useMutation } from '@tanstack/react-query'
+import axios from 'axios'
 
 const AddFormPost = () => {
-  const mutation = usePostMutation()
+  const mutation = useMutation({
+    mutationFn: (newPost: any) =>
+      axios.post('https://jsonplaceholder.typicode.com/posts', newPost),
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const { title } = e.target.elements // Các child của <form>, ở đây là <input> with `name="title"`
-    mutation.mutate({
-      title: title.value,
-    })
+    mutation.mutate({ title: title.value })
   }
 
   return (
